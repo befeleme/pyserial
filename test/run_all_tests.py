@@ -37,7 +37,7 @@ for modulename in [
         print("skipping {}".format(modulename))
     else:
         module.PORT = PORT
-        testsuite = unittest.findTestCases(module)
+        testsuite = unittest.TestLoader().loadTestsFromModule(module)
         print("found {} tests in {!r}".format(testsuite.countTestCases(), modulename))
         mainsuite.addTest(testsuite)
 
